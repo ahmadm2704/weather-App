@@ -1,0 +1,322 @@
+/* Global Styles */
+body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+
+
+.wrapper {
+    padding: 20px;
+}
+
+/* Glassmorphism */
+.glass-card, .chatbox {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+/* Navbar */
+.glassy-navbar {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.glassy-navbar a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s, background 0.3s;
+}
+
+.glassy-navbar a:hover {
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+/* Sidebar */
+.sidebar {
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 20px;
+    min-height: 80vh;
+    backdrop-filter: blur(10px);
+    transition: background 0.5s;
+}
+
+.sidebar a {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    padding: 12px;
+    display: block;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 10px;
+}
+
+/* Search Bar */
+.search-bar input {
+    border-radius: 30px;
+    padding: 15px;
+    width: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glass {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: background 0.3s;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Forecast Table */
+.glass-table {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-bar input {
+        width: 100%;
+    }
+
+    .sidebar {
+        min-height: auto;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        margin-top: 20px; 
+    }
+
+    .chart-section, .glass-card {
+        margin-bottom: 20px; 
+    }
+}
+
+/* Table Container */
+#forecast-table-container {
+    background-color: transparent !important; 
+    padding: 15px;
+}
+
+/* Table Container */
+#forecast-table-container {
+    background-color: transparent !important; 
+    padding: 15px;
+    backdrop-filter: none !important; 
+}
+
+/* Forecast Table Styling */
+.forecast-table {
+    width: 100%;
+    background-color: transparent !important; 
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2) !important;
+    margin: 30px 0;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 5-Day Forecast Header */
+.forecast-header {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px); 
+    padding: 10px 20px; 
+    border-radius: 12px; 
+    text-align: center; 
+    font-size: 2rem;
+    color: white; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+
+/* Header Styling */
+.forecast-table thead {
+    background-color: rgba(0, 0, 0, 0.3) !important; 
+    color: #f8f9fa !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+}
+
+.forecast-table th, .forecast-table td {
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9) !important; 
+    background-color: rgba(0, 0, 0, 0.3) !important; 
+}
+
+/* Row Styling */
+.forecast-table tbody tr {
+    transition: background-color 0.4s, transform 0.2s ease-in-out;
+    background-color: transparent !important;
+}
+
+.forecast-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05) !important; 
+}
+
+.forecast-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important; 
+    transform: scale(1.03); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25) !important; 
+}
+
+/* Icon Styling */
+.forecast-table td img {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.6)) !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.forecast-table td img:hover {
+    transform: scale(1.2); /* Bigger zoom effect */
+}
+
+/* Borders */
+.forecast-table th {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.forecast-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-weight: 500;
+}
+
+/* Adjust Table for Small Screens */
+@media (max-width: 768px) {
+    .forecast-table {
+        font-size: 0.9rem; 
+        box-shadow: none; 
+    }
+
+    .forecast-table th, .forecast-table td {
+        padding: 10px; 
+    }
+
+    .forecast-table td img {
+        width: 30px; 
+        height: 30px;
+    }
+
+    .forecast-table tbody tr:hover {
+        transform: none; 
+        box-shadow: none; 
+    }
+
+    /* Adjust Pagination Container */
+    .pagination-container {
+        justify-content: center;
+    }
+}
+
+/* Extra Small Screens (Phones) */
+@media (max-width: 576px) {
+    .forecast-table th:nth-child(3), 
+    .forecast-table td:nth-child(3) {
+        display: none; 
+    }
+    
+    .forecast-table th, .forecast-table td {
+        font-size: 0.8rem; 
+        padding: 8px; 
+    }
+
+    .forecast-table td img {
+        width: 25px; 
+        height: 25px;
+    }
+
+    /* Center pagination for small screens */
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Chart Section Container */
+.chart-section {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px); 
+    border-radius: 16px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
+    padding: 20px;
+    margin: 30px 0;
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* Optional: Adding Hover Effect */
+.chart-section:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); 
+}
+
+/* Ensure all text inside chart section is white */
+.chart-section * {
+    color: white !important; 
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./style/styles.css">
+  </head>
+  <body>
+    <!-- Video Background Container -->
+    <div class="video-background">
+      <video autoplay muted loop id="background-video" class="background-video">
+        <source src="front.mp4" type="video/mp4"> Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg glassy-navbar shadow-lg">
+        <a class="navbar-brand text-white fw-bold fs-2" href="./index.html">
+          <i class="bi bi-cloud-sun-fill"></i> Weather Dashboard </a>
+      </nav>
+      <div class="container-fluid mt-4">
+        <div class="row">
+          <!-- Sidebar -->
+          <div class="col-md-2 sidebar rounded-4 shadow-lg">
+            <a href="#" class="nav-link" onclick="showSection('dashboard')">
+              <i class="bi bi-house-door"></i> Dashboard </a>
+            <a href="#" class="nav-link mt-2" onclick="showSection('tables')">
+              <i class="bi bi-table"></i> Forecast </a>
+          </div>
+          <!-- Main Content -->
+          <div class="col-md-10">
+            <!-- Dashboard Section -->
+            <div id="dashboard-section">
+              <!-- Search Bar -->
+              <div class="search-bar d-flex justify-content-center align-items-center mb-5">
+                <input type="text" class="form-control search-input shadow" id="city-input" placeholder="Enter city name...">
+                <button class="btn btn-glass ms-3" onclick="manualWeatherSearch()">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+              <!-- Unit Toggle Button -->
+              <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-glass" id="toggle-unit" onclick="toggleUnit()">Switch to Fahrenheit</button>
+              </div>
+              <!-- Weather Info -->
+              <div id="weather-info" class="glass-card p-5 text-center shadow-lg mt-3">
+                <h3 class="text-white">Your weather report will appear here</h3>
+              </div>
+              <!-- Charts Section -->
+              <div class="row mt-5 g-3 chart-section ">
+                <div class="col-md-4">
+                  <canvas id="tempChart"></canvas>
+                </div>
+                <div class="col-md-4">
+                  <canvas id="weatherPieChart"></canvas>
+                </div>
+                <div class="col-md-4">
+                  <canvas id="lineChart"></canvas>
+                </div>
+              </div>
+              <!-- Chatbot Section -->
+              <div class="glass-card mt-5 p-4 shadow-lg">
+                <h5 class="text-white">Chat with WeatherBot</h5>
+                <div id="chatbot-response" class="chatbox border rounded p-3 mt-3"></div>
+                <div class="d-flex mt-2">
+                  <input type="text" id="user-input" class="form-control me-2 rounded-pill" placeholder="Ask WeatherBot...">
+                  <button class="btn btn-glass" onclick="handleUserQuery()">Send</button>
+                </div>
+              </div>
+            </div>
+            <!-- Forecast Section -->
+            <div id="tables-section" class="d-none">
+              <h2 class="text-white text-center mt-3 forecast-header">5-Day Forecast</h2>
+              <!-- Table Container -->
+              <div id="forecast-table-container" class="mt-3 table-responsive">
+                <table class="table forecast-table text-white">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Temperature</th>
+                      <th>Description</th>
+                      <th>Icon</th>
+                    </tr>
+                  </thead>
+                  <tbody id="forecast-table"></tbody>
+                </table>
+                <div id="pagination" class="pagination-container"></div>
+              </div>
+              <!-- Sorting and Filtering Buttons -->
+              <div class="d-flex justify-content-center mt-3 flex-wrap">
+                <button class="btn btn-glass ms-2 mt-2" onclick="updateTable(fiveDayData, 1, 'ascending')">Sort Ascending</button>
+                <button class="btn btn-glass ms-2 mt-2" onclick="updateTable(fiveDayData, 1, 'descending')">Sort Descending</button>
+                <button class="btn btn-glass ms-2 mt-2" onclick="updateTable(fiveDayData, 1, 'rainy')">Show Rainy Days</button>
+                <button class="btn btn-glass ms-2 mt-2" onclick="updateTable(fiveDayData, 1, 'highestTemp')">Show Hottest Day</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
